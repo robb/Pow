@@ -18,7 +18,8 @@ public extension AnyTransition.MovingParts {
     }
 }
 
-internal struct Clock: ViewModifier, Animatable, AnimatableModifier {
+internal struct Clock: ViewModifier, ProgressableAnimation, AnimatableModifier {
+
     var origin: UnitPoint
 
     var animatableData: AnimatablePair<CGFloat, CGFloat>
@@ -29,7 +30,8 @@ internal struct Clock: ViewModifier, Animatable, AnimatableModifier {
     }
 
     var progress: CGFloat {
-        animatableData.first
+      get { animatableData.first }
+      set { animatableData.first = newValue }
     }
 
     var blurRadius: CGFloat {
@@ -81,6 +83,12 @@ internal struct Clock: ViewModifier, Animatable, AnimatableModifier {
 }
 
 #if os(iOS) && DEBUG
+struct Clock_Preview: PreviewableAnimation, PreviewProvider {
+  static var animation: Clock {
+    Clock(origin: .center, blurRadius: 0, progress: 0)
+  }
+}
+
 struct Clock_Previews: PreviewProvider {
     struct Item: Identifiable {
         var color: Color

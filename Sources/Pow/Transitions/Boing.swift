@@ -18,7 +18,7 @@ public extension AnyTransition.MovingParts {
     }
 }
 
-internal struct Boing: Animatable, GeometryEffect {
+internal struct Boing: ProgressableAnimation, GeometryEffect {
     var edge: Edge
 
     var animatableData: CGFloat = 0
@@ -104,6 +104,12 @@ internal struct Boing: Animatable, GeometryEffect {
 }
 
 #if os(iOS) && DEBUG
+struct Boing_Preview: PreviewableAnimation, PreviewProvider {
+  static var animation: Scaled<Boing> {
+    Scaled(Boing(.top, animatableData: 0))
+  }
+}
+
 @available(iOS 15.0, *)
 struct Bounce_Previews: PreviewProvider {
     struct Item: Identifiable {
