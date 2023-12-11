@@ -732,6 +732,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pow Example/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_SOURCE_FILE_NAMES[arch=*]" = "SnapshotPreviews*";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pow-Example-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Pow;

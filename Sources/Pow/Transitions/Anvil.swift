@@ -1,4 +1,5 @@
 import SwiftUI
+import SnapshotPreferences
 
 public extension AnyTransition.MovingParts {
     /// A transition that drops the view down from the top.
@@ -280,6 +281,7 @@ struct Anvil_Previews: PreviewProvider {
                 .navigationBarHidden(true)
         }
         .environment(\.colorScheme, .dark)
+        .emergeSnapshotPrecision(0)
     }
 }
 #endif
